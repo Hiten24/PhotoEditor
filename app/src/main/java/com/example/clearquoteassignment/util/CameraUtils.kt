@@ -5,6 +5,17 @@ import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.media.Image
 import androidx.camera.core.CameraSelector
+import androidx.camera.core.ImageCapture
+import androidx.camera.core.Preview
+
+fun buildTakePicture(): ImageCapture = ImageCapture.Builder()
+    .build()
+
+fun buildPreview(surfaceProvider: Preview.SurfaceProvider): Preview = Preview.Builder()
+    .build()
+    .apply {
+        setSurfaceProvider(surfaceProvider)
+    }
 
 fun getCameraSelector(isBackCam: Boolean): CameraSelector {
     return if(isBackCam) {
