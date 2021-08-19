@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +15,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.coroutineScope
+import androidx.navigation.fragment.findNavController
 import com.example.clearquoteassignment.databinding.FragmentCameraBinding
 import com.example.clearquoteassignment.util.buildPreview
 import com.example.clearquoteassignment.util.buildTakePicture
@@ -77,8 +77,10 @@ class CameraFragment: Fragment() {
     private fun clickPicture() {
         lifecycle.coroutineScope.launchWhenResumed {
             val imageProxy = takePicture.takePicture(context?.executor!!)
-            showImage()
-            binding.ivOutput.setImageBitmap(imageProxy.image?.toBitmap())
+//            showImage()
+//            binding.ivOutput.setImageBitmap(imageProxy.image?.toBitmap())
+            findNavController().navigate(CameraFragmentDirections.actionCameraFragmentToImageFragment(
+                CapturedImage(imageProxy.image?.toBitmap())))
         }
     }
 

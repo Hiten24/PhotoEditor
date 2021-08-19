@@ -4,14 +4,17 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.media.Image
+import androidx.camera.core.AspectRatio
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 
 fun buildTakePicture(): ImageCapture = ImageCapture.Builder()
+    .setTargetAspectRatio(AspectRatio.RATIO_4_3)
     .build()
 
 fun buildPreview(surfaceProvider: Preview.SurfaceProvider): Preview = Preview.Builder()
+    .setTargetAspectRatio(AspectRatio.RATIO_4_3)
     .build()
     .apply {
         setSurfaceProvider(surfaceProvider)

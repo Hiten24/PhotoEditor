@@ -9,11 +9,15 @@
         android:name="com.example.clearquoteassignment.CameraFragment"
         android:label="CameraFragment" >
         <action
-            android:id="@+id/action_cameraFragment_to_testFragment"
-            app:destination="@id/testFragment" />
+            android:id="@+id/action_cameraFragment_to_imageFragment"
+            app:destination="@id/imageFragment" />
     </fragment>
     <fragment
-        android:id="@+id/testFragment"
-        android:name="com.example.clearquoteassignment.TestFragment"
-        android:label="TestFragment" />
+        android:id="@+id/imageFragment"
+        android:name="com.example.clearquoteassignment.ImageFragment"
+        android:label="ImageFragment" >
+        <argument
+            android:name="image"
+            app:argType="com.example.clearquoteassignment.CapturedImage" />
+    </fragment>
 </navigation>
