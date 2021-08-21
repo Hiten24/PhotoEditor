@@ -1,30 +1,19 @@
 package com.example.clearquoteassignment.ui.fragments
 
 import android.content.Intent
-import android.content.UriMatcher
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.app.ShareCompat
-import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.clearquoteassignment.CapturedImage
 import com.example.clearquoteassignment.R
+import com.example.clearquoteassignment.data.CapturedImage
+import com.example.clearquoteassignment.data.saveCache
+import com.example.clearquoteassignment.data.savePhotoToExternalStorage
 import com.example.clearquoteassignment.databinding.FragmentImageBinding
-import com.example.clearquoteassignment.savePhotoToExternalStorage
 import com.example.clearquoteassignment.writePermissionGranted
-import java.io.ByteArrayOutputStream
-import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
-import java.lang.Exception
 import java.util.*
 
 class ImageFragment: Fragment(), View.OnClickListener {
@@ -47,6 +36,7 @@ class ImageFragment: Fragment(), View.OnClickListener {
         binding.btnDraw.setOnClickListener(this)
         binding.btnSave.setOnClickListener(this)
         binding.ivShareImage.setOnClickListener(this)
+        binding.ivCrop.setOnClickListener(this)
 
         return binding.root
     }
@@ -58,6 +48,10 @@ class ImageFragment: Fragment(), View.OnClickListener {
                 navigate(ImageFragmentDirections.actionImageFragmentToDrawFragment(CapturedImage(image)))
             R.id.btnSave -> saveImage(image)
             R.id.ivShareImage -> shareImage(image)
+            R.id.ivCrop -> {
+                findNavController().navigate(ImageFragmentDirections.actionImageFragmentToCropImageFragment(
+                    CapturedImage(image)))
+            }
         }
     }
 
@@ -69,8 +63,8 @@ class ImageFragment: Fragment(), View.OnClickListener {
 
     private fun shareImage(image: Bitmap) {
 
-        val uri = saveCache(image)
-        val intent = Intent(android.content.Intent.ACTION_SEND).apply {
+        val uri = context?.saveCache(image)
+        val intent = Intent(Intent.ACTION_SEND).apply {
             type = "image/jpeg"
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
             putExtra(Intent.EXTRA_STREAM, uri)
@@ -78,7 +72,7 @@ class ImageFragment: Fragment(), View.OnClickListener {
         startActivity(Intent.createChooser(intent, "Choose app to share Image"))
     }
 
-    private fun saveCache(image: Bitmap) : Uri? {
+    /*private fun saveCache(image: Bitmap) : Uri? {
         var uri: Uri? = null
         val imageFolder = File(context?.cacheDir, "images")
         try {
@@ -93,5 +87,5 @@ class ImageFragment: Fragment(), View.OnClickListener {
             Log.d("ImageFragment", "IOException while trying to write file for sharing: " + e.message)
         }
         return uri
-    }
+    }*/
 }

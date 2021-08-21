@@ -1,5 +1,6 @@
 package com.example.clearquoteassignment.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
@@ -53,24 +54,25 @@ class DrawableImageView : androidx.appcompat.widget.AppCompatImageView {
         canvas.drawRect(300F, 200F, 800F, 400F, paint)
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         if (isDrawEnable) {
             when (event?.action) {
                 MotionEvent.ACTION_DOWN -> {
-                    downX = getPointerCoords(event)[0]
-                    downY = getPointerCoords(event)[1]
+                    downX = getPointerCoordinates(event)[0]
+                    downY = getPointerCoordinates(event)[1]
                 }
                 MotionEvent.ACTION_MOVE -> {
-                    upX = getPointerCoords(event)[0]
-                    upY = getPointerCoords(event)[1]
+                    upX = getPointerCoordinates(event)[0]
+                    upY = getPointerCoordinates(event)[1]
                     canvas.drawLine(downX, downY, upX, upY, paint)
                     invalidate()
                     downX = upX
                     downY = upY
                 }
                 MotionEvent.ACTION_UP -> {
-                    upX = getPointerCoords(event)[0]
-                    upY = getPointerCoords(event)[1]
+                    upX = getPointerCoordinates(event)[0]
+                    upY = getPointerCoordinates(event)[1]
                     canvas.drawLine(downX, downY, upX, upY, paint)
                     invalidate()
                 }
@@ -79,7 +81,7 @@ class DrawableImageView : androidx.appcompat.widget.AppCompatImageView {
         return true
     }
 
-    private fun getPointerCoords(e: MotionEvent): FloatArray {
+    private fun getPointerCoordinates(e: MotionEvent): FloatArray {
         val index = e.actionIndex
         val cords: FloatArray = floatArrayOf(e.getX(index), e.getY(index))
         val matrix = Matrix()

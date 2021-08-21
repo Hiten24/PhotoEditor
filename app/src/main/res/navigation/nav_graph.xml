@@ -18,10 +18,13 @@
         android:label="ImageFragment" >
         <argument
             android:name="image"
-            app:argType="com.example.clearquoteassignment.CapturedImage" />
+            app:argType="com.example.clearquoteassignment.data.CapturedImage" />
         <action
             android:id="@+id/action_imageFragment_to_drawFragment"
             app:destination="@id/drawFragment" />
+        <action
+            android:id="@+id/action_imageFragment_to_cropImageFragment"
+            app:destination="@id/cropImageFragment" />
     </fragment>
     <fragment
         android:id="@+id/drawFragment"
@@ -29,6 +32,19 @@
         android:label="DrawFragment" >
         <argument
             android:name="image"
-            app:argType="com.example.clearquoteassignment.CapturedImage" />
+            app:argType="com.example.clearquoteassignment.data.CapturedImage" />
+    </fragment>
+    <fragment
+        android:id="@+id/cropImageFragment"
+        android:name="com.example.clearquoteassignment.ui.fragments.CropImageFragment"
+        android:label="CropImageFragment" >
+        <argument
+            android:name="image"
+            app:argType="com.example.clearquoteassignment.data.CapturedImage" />
+        <action
+            android:id="@+id/action_cropImageFragment_to_imageFragment"
+            app:destination="@id/imageFragment"
+            app:popUpTo="@id/imageFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>

@@ -9,6 +9,7 @@ import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 
+
 fun buildTakePicture(): ImageCapture = ImageCapture.Builder()
     .setTargetAspectRatio(AspectRatio.RATIO_4_3)
     .build()
