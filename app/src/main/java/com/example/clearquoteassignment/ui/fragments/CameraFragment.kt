@@ -1,4 +1,4 @@
-package com.example.clearquoteassignment
+package com.example.clearquoteassignment.ui.fragments
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -16,6 +16,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.coroutineScope
 import androidx.navigation.fragment.findNavController
+import com.example.clearquoteassignment.CapturedImage
+import com.example.clearquoteassignment.REQUEST_CODE_PERMISSION
+import com.example.clearquoteassignment.REQUIRED_PERMISSIONS
 import com.example.clearquoteassignment.databinding.FragmentCameraBinding
 import com.example.clearquoteassignment.util.buildPreview
 import com.example.clearquoteassignment.util.buildTakePicture

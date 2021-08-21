@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivBackBtn"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_round_clear"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/ivDone"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_done"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBackBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivBackBtn"
+        tools:ignore="ContentDescription" />
+
+    <com.example.clearquoteassignment.ui.DrawableImageView
+        android:id="@+id/ivImage"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    </com.example.clearquoteassignment.ui.DrawableImageView>
+
+    <ImageView
+        android:id="@+id/ivDraw"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_outline_draw"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/ivText"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_round_text_fields"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivCircle"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivDraw"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/ivCircle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_outline_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivSquare"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivText"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/ivSquare"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_baseline_crop_square_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivCircle"
+        tools:ignore="ContentDescription" />
+
+    <View
+        android:id="@+id/textBackgroundView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="text"
+        android:importantForAutofill="no"
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/btnTextEntered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/add"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

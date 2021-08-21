@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,11 +10,13 @@
         android:id="@+id/ivImage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/toolsContainer"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnDraw"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivShareImage"
         tools:ignore="ContentDescription" />
 
     <ImageView
@@ -27,13 +30,53 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription" />
 
-    <View
-        android:id="@+id/toolsContainer"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/ivShareImage"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_round_share"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBackBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivBackBtn"
+        tools:ignore="ContentDescription" />
+
+    <Button
+        android:id="@+id/btnDraw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/ivCrop"
+        app:layout_constraintEnd_toStartOf="@+id/btnSave"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivCrop"
+        app:layout_constraintTop_toTopOf="@+id/ivCrop" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDraw"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/btnDraw"
+        app:layout_constraintTop_toTopOf="@+id/btnDraw" />
+
+    <ImageView
+        android:id="@+id/ivCrop"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_round_crop_rotate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnDraw"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

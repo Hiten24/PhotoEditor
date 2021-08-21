@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/cameraFragment"
-        android:name="com.example.clearquoteassignment.CameraFragment"
+        android:name="com.example.clearquoteassignment.ui.fragments.CameraFragment"
         android:label="CameraFragment" >
         <action
             android:id="@+id/action_cameraFragment_to_imageFragment"
@@ -14,8 +14,19 @@
     </fragment>
     <fragment
         android:id="@+id/imageFragment"
-        android:name="com.example.clearquoteassignment.ImageFragment"
+        android:name="com.example.clearquoteassignment.ui.fragments.ImageFragment"
         android:label="ImageFragment" >
+        <argument
+            android:name="image"
+            app:argType="com.example.clearquoteassignment.CapturedImage" />
+        <action
+            android:id="@+id/action_imageFragment_to_drawFragment"
+            app:destination="@id/drawFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/drawFragment"
+        android:name="com.example.clearquoteassignment.ui.fragments.DrawFragment"
+        android:label="DrawFragment" >
         <argument
             android:name="image"
             app:argType="com.example.clearquoteassignment.CapturedImage" />
