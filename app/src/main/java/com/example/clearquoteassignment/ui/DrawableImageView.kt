@@ -29,7 +29,7 @@ class DrawableImageView : androidx.appcompat.widget.AppCompatImageView {
         canvas = Canvas(bitmap)
         paint = Paint()
         paint.color = Color.GREEN
-        paint.strokeWidth = 10F
+        paint.strokeWidth = 20F
         mMatrix = Matrix()
         canvas.drawBitmap(bitmap, 0F, 0F, paint)
         setImageBitmap(bitmap)
